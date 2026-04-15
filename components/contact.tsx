@@ -205,7 +205,7 @@ export default function Contact() {
               Gửi Yêu cầu
             </motion.button>
           </motion.form>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
