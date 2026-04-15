@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'KT Catering | Industrial Food Service Solutions',
-  description: 'Premium B2B industrial catering solutions for factories, companies, and schools. Large-scale meal supply with guaranteed quality and hygiene standards.',
+  title: 'KT Catering | Giải pháp cơm công nghiệp',
+  description: 'Giải pháp cơm công nghiệp B2B cao cấp cho nhà máy, công ty và trường học. Cung cấp bữa ăn quy mô lớn với chất lượng được đảm bảo và tiêu chuẩn vệ sinh.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background">
+    <html lang="vi" className="bg-background">
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

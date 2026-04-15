@@ -31,9 +31,9 @@ export default function Contact() {
           {/* Contact Info */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Get in Touch</h2>
+              <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Liên hệ với chúng tôi</h2>
               <p className="text-lg text-muted-foreground">
-                Ready to partner with KT Catering? Contact us today for a personalized quote.
+                Sẵn sàng hợp tác với KT Catering? Liên hệ với chúng tôi ngay hôm nay để nhận báo giá được cá nhân hóa.
               </p>
             </div>
 
@@ -45,7 +45,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground">Phone</p>
+                  <p className="font-semibold text-foreground">Điện thoại</p>
                   <p className="text-muted-foreground">+84 (28) 1234-5678</p>
                 </div>
               </div>
@@ -69,8 +69,8 @@ export default function Contact() {
                   </div>
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground">Address</p>
-                  <p className="text-muted-foreground">Ho Chi Minh City, Vietnam</p>
+                  <p className="font-semibold text-foreground">Địa chỉ</p>
+                  <p className="text-muted-foreground">Thành phố Hồ Chí Minh, Việt Nam</p>
                 </div>
               </div>
             </div>
@@ -80,7 +80,7 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="space-y-5 rounded-lg border border-border bg-card p-8">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                Full Name
+                Họ và tên
               </label>
               <input
                 type="text"
@@ -90,13 +90,13 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 className="w-full rounded-lg border border-input bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
-                placeholder="Your name"
+                placeholder="Tên của bạn"
               />
             </div>
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                Email Address
+                Địa chỉ Email
               </label>
               <input
                 type="email"
@@ -106,13 +106,13 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 className="w-full rounded-lg border border-input bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
-                placeholder="your@email.com"
+                placeholder="email@cua.ban.com"
               />
             </div>
 
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                Phone Number
+                Số điện thoại
               </label>
               <input
                 type="tel"
@@ -127,7 +127,7 @@ export default function Contact() {
 
             <div>
               <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
-                Company Name
+                Tên công ty
               </label>
               <input
                 type="text"
@@ -137,13 +137,13 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 className="w-full rounded-lg border border-input bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
-                placeholder="Your company"
+                placeholder="Công ty của bạn"
               />
             </div>
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                Message
+                Tin nhắn
               </label>
               <textarea
                 id="message"
@@ -153,7 +153,7 @@ export default function Contact() {
                 required
                 rows={4}
                 className="w-full rounded-lg border border-input bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 resize-none"
-                placeholder="Tell us about your catering needs..."
+                placeholder="Hãy cho chúng tôi biết về nhu cầu cơm của bạn..."
               />
             </div>
 
@@ -161,7 +161,7 @@ export default function Contact() {
               type="submit"
               className="w-full rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
             >
-              Send Inquiry
+              Gửi Yêu cầu
             </button>
           </form>
         </div>

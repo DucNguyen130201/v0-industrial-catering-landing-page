@@ -5,23 +5,23 @@ import { Shield, Leaf, Users, TrendingUp } from 'lucide-react';
 const reasons = [
   {
     icon: Shield,
-    title: 'Safety & Hygiene',
-    description: 'ISO-certified kitchen with strict food safety protocols and regular health inspections.'
+    title: 'An toàn & Vệ sinh',
+    description: 'Bếp được chứng nhận ISO với các giao thức an toàn thực phẩm chặt chẽ và kiểm tra sức khỏe thường xuyên.'
   },
   {
     icon: Leaf,
-    title: 'Quality Ingredients',
-    description: 'We source premium local and sustainable ingredients to ensure nutritional excellence.'
+    title: 'Nguyên liệu chất lượng',
+    description: 'Chúng tôi tìm nguồn nguyên liệu bền vững và địa phương cao cấp để đảm bảo sự xuất sắc về dinh dưỡng.'
   },
   {
     icon: Users,
-    title: 'Expert Team',
-    description: 'Experienced chefs and nutritionists dedicated to culinary excellence and client satisfaction.'
+    title: 'Đội chuyên gia',
+    description: 'Những đầu bếp và chuyên gia dinh dưỡng giàu kinh nghiệm tận tâm phục vụ các khách hàng.'
   },
   {
     icon: TrendingUp,
-    title: 'Scalability',
-    description: 'From 100 to 5,000+ meals daily, we adapt seamlessly to your organization&apos;s growth.'
+    title: 'Khả năng mở rộng',
+    description: 'Từ 100 đến 5.000+ bữa ăn mỗi ngày, chúng tôi thích ứng mượt mà với sự phát triển của tổ chức bạn.'
   },
 ];
 
@@ -30,9 +30,9 @@ export default function WhyUs() {
     <section id="why-us" className="bg-background py-20 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 space-y-4 text-center">
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Why Choose KT Catering</h2>
+          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Tại sao chọn KT Catering</h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Excellence in every meal, reliability in every delivery
+            Sự xuất sắc trong mỗi bữa ăn, độ tin cậy trong mỗi lần giao hàng
           </p>
         </div>
 

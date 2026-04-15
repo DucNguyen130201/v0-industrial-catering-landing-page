@@ -25,16 +25,16 @@ export default function Header() {
         {/* Desktop Menu */}
         <div className="hidden gap-8 md:flex">
           <Link href="#services" className="text-sm text-foreground hover:text-accent transition-colors">
-            Services
+            Dịch vụ
           </Link>
           <Link href="#process" className="text-sm text-foreground hover:text-accent transition-colors">
-            Process
+            Quy trình
           </Link>
           <Link href="#why-us" className="text-sm text-foreground hover:text-accent transition-colors">
-            Why Us
+            Tại sao chọn chúng tôi
           </Link>
           <Link href="#testimonials" className="text-sm text-foreground hover:text-accent transition-colors">
-            Testimonials
+            Đánh giá
           </Link>
         </div>
 
@@ -55,7 +55,7 @@ export default function Header() {
           href="#contact"
           className="hidden md:inline-block rounded-full bg-primary px-6 py-2 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
         >
-          Get a Quote
+          Báo giá
         </Link>
       </nav>
 
@@ -68,35 +68,35 @@ export default function Header() {
               className="text-sm text-foreground hover:text-accent transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Services
+              Dịch vụ
             </Link>
             <Link
               href="#process"
               className="text-sm text-foreground hover:text-accent transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Process
+              Quy trình
             </Link>
             <Link
               href="#why-us"
               className="text-sm text-foreground hover:text-accent transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Why Us
+              Tại sao chọn chúng tôi
             </Link>
             <Link
               href="#testimonials"
               className="text-sm text-foreground hover:text-accent transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Testimonials
+              Đánh giá
             </Link>
             <Link
               href="#contact"
               className="rounded-full bg-primary px-6 py-2 text-center text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Get a Quote
+              Báo giá
             </Link>
           </div>
         </div>

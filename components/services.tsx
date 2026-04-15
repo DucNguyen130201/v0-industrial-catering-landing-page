@@ -4,24 +4,24 @@ import { CheckCircle2 } from 'lucide-react';
 
 const services = [
   {
-    title: 'Factory Catering',
-    description: 'Customized meal solutions for large workforce operations with reliable daily delivery.',
-    features: ['High-volume capacity', 'Nutritional balance', 'Cost-effective pricing']
+    title: 'Cơm nhà máy',
+    description: 'Giải pháp bữa ăn tùy chỉnh cho các hoạt động quy mô lớn với giao hàng hàng ngày uy tín.',
+    features: ['Sức chứa lớn', 'Cân bằng dinh dưỡng', 'Giá cạnh tranh']
   },
   {
-    title: 'Corporate Dining',
-    description: 'Premium meal services for company events, conferences, and daily employee dining.',
-    features: ['Professional presentation', 'Customizable menus', 'On-site coordination']
+    title: 'Ăn uống công ty',
+    description: 'Dịch vụ bữa ăn cao cấp cho các sự kiện công ty, hội thảo và ăn uống nhân viên hàng ngày.',
+    features: ['Trình bày chuyên nghiệp', 'Menu tùy chỉnh', 'Phối hợp tại chỗ']
   },
   {
-    title: 'School Catering',
-    description: 'Age-appropriate, nutritionally certified meals for educational institutions.',
-    features: ['Certified nutrition', 'Allergy management', 'Quality ingredients']
+    title: 'Cơm trường học',
+    description: 'Bữa ăn phù hợp với độ tuổi, được chứng nhận về dinh dưỡng cho các tổ chức giáo dục.',
+    features: ['Dinh dưỡng chứng nhận', 'Quản lý dị ứng', 'Nguyên liệu chất lượng']
   },
   {
-    title: 'Event Catering',
-    description: 'Full-service catering for corporate events, banquets, and special occasions.',
-    features: ['Complete setup', 'Professional staff', 'Flexible menus']
+    title: 'Cơm tiệc',
+    description: 'Dịch vụ cơm toàn phần cho các sự kiện công ty, tiệc và dịp đặc biệt.',
+    features: ['Thiết lập hoàn chỉnh', 'Nhân viên chuyên nghiệp', 'Menu linh hoạt']
   },
 ];
 
@@ -30,9 +30,9 @@ export default function Services() {
     <section id="services" className="bg-background py-20 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 space-y-4 text-center">
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Our Services</h2>
+          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Dịch vụ của chúng tôi</h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Comprehensive catering solutions tailored to your organization&apos;s unique needs
+            Giải pháp cơm toàn diện được điều chỉnh theo nhu cầu riêng của tổ chức bạn
           </p>
         </div>
 

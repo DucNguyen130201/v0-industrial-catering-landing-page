@@ -4,31 +4,31 @@ import { Star } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Nguyen Minh',
-    company: 'GlobalTech Factory',
-    role: 'Operations Manager',
-    content: 'KT Catering has been exceptional. Their meals are consistently high-quality and our employees love the variety. Highly reliable delivery.',
+    name: 'Nguyễn Minh',
+    company: 'Nhà máy GlobalTech',
+    role: 'Quản lý Hoạt động',
+    content: 'KT Catering thực sự tuyệt vời. Bữa ăn của họ luôn chất lượng cao và nhân viên của chúng tôi yêu thích sự đa dạng. Giao hàng cực kỳ uy tín.',
     rating: 5
   },
   {
-    name: 'Tran Linh',
+    name: 'Trần Linh',
     company: 'Vision Corp',
-    role: 'HR Director',
-    content: 'The customization options and professional service have exceeded our expectations. They handle our 800+ daily meals without any issues.',
+    role: 'Giám đốc Nhân sự',
+    content: 'Các tùy chọn tùy chỉnh và dịch vụ chuyên nghiệp vượt quá kỳ vọng của chúng tôi. Họ xử lý 800+ bữa ăn hàng ngày của chúng tôi mà không có vấn đề gì.',
     rating: 5
   },
   {
-    name: 'Pham Duc',
-    company: 'Central Elementary School',
-    role: 'Principal',
-    content: 'Parents appreciate the nutritious, balanced meals. KT&apos;s team is professional and always responsive to our dietary requirements.',
+    name: 'Phạm Đức',
+    company: 'Trường Tiểu học Trung tâm',
+    role: 'Hiệu trưởng',
+    content: 'Phụ huynh đánh giá cao bữa ăn bổ dưỡng, cân bằng. Đội của KT chuyên nghiệp và luôn đáp ứng nhu cầu ăn uống của chúng tôi.',
     rating: 5
   },
   {
-    name: 'Hoang Thu',
-    company: 'Premier Financial',
-    role: 'Facilities Manager',
-    content: 'Outstanding catering service for our corporate events. Flexible, professional, and consistently delivers excellence on every occasion.',
+    name: 'Hoàng Thu',
+    company: 'Tài chính Hàng đầu',
+    role: 'Quản lý Cơ sở',
+    content: 'Dịch vụ cơm tuyệt vời cho các sự kiện công ty của chúng tôi. Linh hoạt, chuyên nghiệp và luôn cung cấp sự xuất sắc ở mọi dịp.',
     rating: 5
   },
 ];
@@ -38,9 +38,9 @@ export default function Testimonials() {
     <section id="testimonials" className="bg-muted py-20 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 space-y-4 text-center">
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">What Our Clients Say</h2>
+          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Khách hàng nói gì về chúng tôi</h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Trusted by factories, companies, and institutions across the region
+            Được tin tưởng bởi các nhà máy, công ty và tổ chức trên toàn khu vực
           </p>
         </div>
 

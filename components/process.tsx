@@ -3,23 +3,23 @@
 const steps = [
   {
     number: '01',
-    title: 'Consultation',
-    description: 'We understand your organization&apos;s dietary needs, budget, and logistical requirements.'
+    title: 'Tư vấn',
+    description: 'Chúng tôi hiểu nhu cầu ăn uống, ngân sách và yêu cầu logistical của tổ chức bạn.'
   },
   {
     number: '02',
-    title: 'Menu Planning',
-    description: 'Our expert team designs balanced, appealing menus tailored to your specifications.'
+    title: 'Lập kế hoạch menu',
+    description: 'Đội chuyên gia của chúng tôi thiết kế menu cân bằng, hấp dẫn theo yêu cầu của bạn.'
   },
   {
     number: '03',
-    title: 'Preparation',
-    description: 'Using quality ingredients, our kitchen produces meals with strict hygiene standards.'
+    title: 'Chuẩn bị',
+    description: 'Sử dụng nguyên liệu chất lượng, bếp của chúng tôi sản xuất bữa ăn với tiêu chuẩn vệ sinh chặt chẽ.'
   },
   {
     number: '04',
-    title: 'Delivery & Service',
-    description: 'Timely, temperature-controlled delivery with professional on-site support included.'
+    title: 'Giao hàng & Dịch vụ',
+    description: 'Giao hàng kịp thời, được kiểm soát nhiệt độ với hỗ trợ chuyên nghiệp tại chỗ bao gồm.'
   },
 ];
 
@@ -28,9 +28,9 @@ export default function Process() {
     <section id="process" className="bg-muted py-20 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 space-y-4 text-center">
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Our Process</h2>
+          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Quy trình của chúng tôi</h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            From consultation to delivery, we ensure seamless execution every step of the way
+            Từ tư vấn đến giao hàng, chúng tôi đảm bảo thực hiện mượt mà ở mọi bước
           </p>
         </div>
 
