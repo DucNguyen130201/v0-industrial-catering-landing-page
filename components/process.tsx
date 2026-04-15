@@ -1,5 +1,9 @@
 'use client';
 
+import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { useInView } from 'framer-motion';
+
 const steps = [
   {
     number: '01',
@@ -24,36 +28,88 @@ const steps = [
 ];
 
 export default function Process() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
+  };
+
+  const circleVariants = {
+    hidden: { scale: 0, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: { duration: 0.5, ease: 'easeOut' },
+    },
+  };
+
   return (
     <section id="process" className="bg-muted py-20 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 space-y-4 text-center">
+        <motion.div
+          className="mb-16 space-y-4 text-center"
+          ref={ref}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Quy trình của chúng tôi</h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Từ tư vấn đến giao hàng, chúng tôi đảm bảo thực hiện mượt mà ở mọi bước
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <motion.div
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-4"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+        >
           {steps.map((step, idx) => (
-            <div key={idx} className="relative">
+            <motion.div key={idx} className="relative" variants={itemVariants}>
               {/* Connection line for desktop */}
               {idx < steps.length - 1 && (
-                <div className="absolute -right-4 top-12 hidden h-1 w-8 bg-border lg:block" />
+                <motion.div
+                  className="absolute -right-4 top-12 hidden h-1 w-8 bg-border lg:block"
+                  initial={{ scaleX: 0 }}
+                  animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 + idx * 0.15 }}
+                  style={{ originX: 0 }}
+                />
               )}
 
               <div className="space-y-4">
-                <div className="h-16 w-16 rounded-full bg-primary flex items-center justify-center">
+                <motion.div
+                  className="h-16 w-16 rounded-full bg-primary flex items-center justify-center"
+                  variants={circleVariants}
+                >
                   <span className="text-2xl font-bold text-primary-foreground">{step.number}</span>
-                </div>
-                <div>
+                </motion.div>
+                <motion.div variants={itemVariants}>
                   <h3 className="mb-2 text-xl font-semibold text-foreground">{step.title}</h3>
                   <p className="text-muted-foreground">{step.description}</p>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

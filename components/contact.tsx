@@ -1,9 +1,14 @@
 'use client';
 
 import { Mail, Phone, MapPin } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
 
 export default function Contact() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,65 +29,93 @@ export default function Contact() {
     setFormData({ name: '', email: '', phone: '', company: '', message: '' });
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
+  };
+
+  const inputVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, ease: 'easeOut' },
+    },
+  };
+
   return (
     <section id="contact" className="bg-background py-20 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-12 lg:grid-cols-2">
+        <motion.div
+          className="grid gap-12 lg:grid-cols-2"
+          ref={ref}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+        >
           {/* Contact Info */}
-          <div className="space-y-8">
-            <div className="space-y-4">
+          <motion.div className="space-y-8" variants={itemVariants}>
+            <motion.div className="space-y-4" variants={itemVariants}>
               <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Liên hệ với chúng tôi</h2>
               <p className="text-lg text-muted-foreground">
                 Sẵn sàng hợp tác với KT Catering? Liên hệ với chúng tôi ngay hôm nay để nhận báo giá được cá nhân hóa.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent">
-                    <Phone className="h-5 w-5 text-accent-foreground" />
-                  </div>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">Điện thoại</p>
-                  <p className="text-muted-foreground">+84 (28) 1234-5678</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent">
-                    <Mail className="h-5 w-5 text-accent-foreground" />
-                  </div>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">Email</p>
-                  <p className="text-muted-foreground">contact@ktcatering.vn</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent">
-                    <MapPin className="h-5 w-5 text-accent-foreground" />
-                  </div>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">Địa chỉ</p>
-                  <p className="text-muted-foreground">Thành phố Hồ Chí Minh, Việt Nam</p>
-                </div>
-              </div>
-            </div>
-          </div>
+            <motion.div className="space-y-6" variants={containerVariants}>
+              {[
+                { icon: Phone, label: 'Điện thoại', value: '+84 (28) 1234-5678' },
+                { icon: Mail, label: 'Email', value: 'contact@ktcatering.vn' },
+                { icon: MapPin, label: 'Địa chỉ', value: 'Thành phố Hồ Chí Minh, Việt Nam' },
+              ].map((contact, idx) => {
+                const Icon = contact.icon;
+                return (
+                  <motion.div key={idx} className="flex gap-4" variants={itemVariants}>
+                    <motion.div
+                      className="flex-shrink-0"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                    >
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent">
+                        <Icon className="h-5 w-5 text-accent-foreground" />
+                      </div>
+                    </motion.div>
+                    <div>
+                      <p className="font-semibold text-foreground">{contact.label}</p>
+                      <p className="text-muted-foreground">{contact.value}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </motion.div>
 
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="space-y-5 rounded-lg border border-border bg-card p-8">
-            <div>
+          <motion.form
+            onSubmit={handleSubmit}
+            className="space-y-5 rounded-lg border border-border bg-card p-8"
+            variants={itemVariants}
+          >
+            <motion.div variants={itemVariants}>
               <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                 Họ và tên
               </label>
-              <input
+              <motion.input
                 type="text"
                 id="name"
                 name="name"
@@ -91,14 +124,15 @@ export default function Contact() {
                 required
                 className="w-full rounded-lg border border-input bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
                 placeholder="Tên của bạn"
+                variants={inputVariants}
               />
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div variants={itemVariants}>
               <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                 Địa chỉ Email
               </label>
-              <input
+              <motion.input
                 type="email"
                 id="email"
                 name="email"
@@ -107,14 +141,15 @@ export default function Contact() {
                 required
                 className="w-full rounded-lg border border-input bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
                 placeholder="email@cua.ban.com"
+                variants={inputVariants}
               />
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div variants={itemVariants}>
               <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
                 Số điện thoại
               </label>
-              <input
+              <motion.input
                 type="tel"
                 id="phone"
                 name="phone"
@@ -122,14 +157,15 @@ export default function Contact() {
                 onChange={handleChange}
                 className="w-full rounded-lg border border-input bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
                 placeholder="+84 (28) XXXX-XXXX"
+                variants={inputVariants}
               />
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div variants={itemVariants}>
               <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
                 Tên công ty
               </label>
-              <input
+              <motion.input
                 type="text"
                 id="company"
                 name="company"
@@ -138,14 +174,15 @@ export default function Contact() {
                 required
                 className="w-full rounded-lg border border-input bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
                 placeholder="Công ty của bạn"
+                variants={inputVariants}
               />
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div variants={itemVariants}>
               <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                 Tin nhắn
               </label>
-              <textarea
+              <motion.textarea
                 id="message"
                 name="message"
                 value={formData.message}
@@ -154,16 +191,20 @@ export default function Contact() {
                 rows={4}
                 className="w-full rounded-lg border border-input bg-background px-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 resize-none"
                 placeholder="Hãy cho chúng tôi biết về nhu cầu cơm của bạn..."
+                variants={inputVariants}
               />
-            </div>
+            </motion.div>
 
-            <button
+            <motion.button
               type="submit"
               className="w-full rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+              variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               Gửi Yêu cầu
-            </button>
-          </form>
+            </motion.button>
+          </motion.form>
         </div>
       </div>
     </section>

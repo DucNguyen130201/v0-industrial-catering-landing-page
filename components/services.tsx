@@ -1,6 +1,9 @@
 'use client';
 
 import { CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { useInView } from 'framer-motion';
 
 const services = [
   {
@@ -26,36 +29,84 @@ const services = [
 ];
 
 export default function Services() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
+  };
+
+  const cardHoverVariants = {
+    hover: {
+      scale: 1.05,
+      transition: { duration: 0.3 },
+    },
+  };
+
   return (
     <section id="services" className="bg-background py-20 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 space-y-4 text-center">
+        <motion.div
+          className="mb-16 space-y-4 text-center"
+          ref={ref}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Dịch vụ của chúng tôi</h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Giải pháp cơm toàn diện được điều chỉnh theo nhu cầu riêng của tổ chức bạn
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <motion.div
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-4"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+        >
           {services.map((service, idx) => (
-            <div
+            <motion.div
               key={idx}
               className="rounded-lg border border-border bg-card p-6 transition-all hover:border-accent hover:shadow-lg"
+              variants={itemVariants}
+              whileHover={cardHoverVariants.hover}
             >
               <h3 className="mb-3 text-xl font-semibold text-foreground">{service.title}</h3>
               <p className="mb-6 text-sm text-muted-foreground">{service.description}</p>
               
-              <div className="space-y-3">
+              <motion.div
+                className="space-y-3"
+                variants={containerVariants}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
+              >
                 {service.features.map((feature, fidx) => (
-                  <div key={fidx} className="flex items-start gap-3">
+                  <motion.div key={fidx} className="flex items-start gap-3" variants={itemVariants}>
                     <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-accent mt-0.5" />
                     <span className="text-sm text-foreground">{feature}</span>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
