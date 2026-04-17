@@ -134,9 +134,10 @@ export default function Hero() {
               variants={containerVariants}
             >
               {[
-                { value: "500+", label: "Bữa ăn/ngày" },
+                { value: "300+", label: "Bữa ăn/ngày" },
                 { value: "50+", label: "Khách hàng" },
-                { value: "15+", label: "Năm kinh nghiệm" },
+                // { value: "15+", label: "Năm kinh nghiệm" },
+                { value: "40+", label: "Thực đơn đa dạng" },
               ].map((stat, idx) => (
                 <motion.div key={idx} variants={itemVariants}>
                   <div className="text-2xl font-bold text-primary">

@@ -8,34 +8,34 @@ import { useInView } from "framer-motion";
 const testimonials = [
   {
     name: "Nguyễn Minh",
-    company: "Nhà máy GlobalTech",
-    role: "Quản lý Hoạt động",
+    role: "Quản lý ca",
     content:
-      "CÔNG TY TNHH KỲ THƯ thực sự tuyệt vời. Bữa ăn của họ luôn chất lượng cao và nhân viên của chúng tôi yêu thích sự đa dạng. Giao hàng cực kỳ uy tín.",
+      "Bên mình đặt suất ăn cho ca sáng và ca chiều. Cơm giao đúng giờ, anh em ăn ổn nên không phải đổi bên khác.",
     rating: 5,
   },
   {
-    name: "Trần Linh",
-    company: "Vision Corp",
-    role: "Giám đốc Nhân sự",
+    name: "Lê Hoa",
+    role: "Nhân viên hành chính",
     content:
-      "Các tùy chọn tùy chỉnh và dịch vụ chuyên nghiệp vượt quá kỳ vọng của chúng tôi. Họ xử lý 800+ bữa ăn hàng ngày của chúng tôi mà không có vấn đề gì.",
+      "Mình phụ trách đặt cơm cho công ty. Làm việc với bên này khá dễ, có gì phát sinh họ xử lý nhanh.",
     rating: 5,
   },
   {
     name: "Phạm Đức",
-    company: "Trường Tiểu học Trung tâm",
-    role: "Hiệu trưởng",
+    role: "Giáo viên",
+    // company: "",
     content:
-      "Phụ huynh đánh giá cao bữa ăn bổ dưỡng, cân bằng. Đội của KT chuyên nghiệp và luôn đáp ứng nhu cầu ăn uống của chúng tôi.",
+      "Bữa ăn cho học sinh được chuẩn bị sạch sẽ, khẩu phần phù hợp. Phụ huynh cũng phản hồi tích cực nên trường yên tâm hợp tác lâu dài.",
     rating: 5,
   },
   {
-    name: "Hoàng Thu",
-    company: "Tài chính Hàng đầu",
-    role: "Quản lý Cơ sở",
+    name: "Anh Tuấn",
+    role: "Công nhân",
+    // company: "",
+    // content:
+    //   "Có đặt bên này cho vài sự kiện nội bộ. Làm việc khá linh hoạt, setup nhanh, đồ ăn ổn, không bị trễ giờ như mấy bên trước.",
     content:
-      "Dịch vụ cơm tuyệt vời cho các sự kiện công ty của chúng tôi. Linh hoạt, chuyên nghiệp và luôn cung cấp sự xuất sắc ở mọi dịp.",
+      "Cơm ăn được, có thay đổi món nên không bị ngán. Quan trọng là giao đúng giờ.",
     rating: 5,
   },
 ];
