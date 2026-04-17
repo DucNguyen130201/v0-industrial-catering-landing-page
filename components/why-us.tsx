@@ -1,36 +1,40 @@
-'use client';
+"use client";
 
-import { Shield, Leaf, Users, TrendingUp } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
-import { useInView } from 'framer-motion';
+import { Shield, Leaf, Users, TrendingUp } from "lucide-react";
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 
 const reasons = [
   {
     icon: Shield,
-    title: 'An toàn & Vệ sinh',
-    description: 'Bếp được chứng nhận ISO với các giao thức an toàn thực phẩm chặt chẽ và kiểm tra sức khỏe thường xuyên.'
+    title: "An toàn & Vệ sinh",
+    description:
+      "Bếp được chứng nhận ISO với các giao thức an toàn thực phẩm chặt chẽ và kiểm tra sức khỏe thường xuyên.",
   },
   {
     icon: Leaf,
-    title: 'Nguyên liệu chất lượng',
-    description: 'Chúng tôi tìm nguồn nguyên liệu bền vững và địa phương cao cấp để đảm bảo sự xuất sắc về dinh dưỡng.'
+    title: "Nguyên liệu chất lượng",
+    description:
+      "Chúng tôi tìm nguồn nguyên liệu bền vững và địa phương cao cấp để đảm bảo sự xuất sắc về dinh dưỡng.",
   },
   {
     icon: Users,
-    title: 'Đội chuyên gia',
-    description: 'Những đầu bếp và chuyên gia dinh dưỡng giàu kinh nghiệm tận tâm phục vụ các khách hàng.'
+    title: "Đội chuyên gia",
+    description:
+      "Những đầu bếp và chuyên gia dinh dưỡng giàu kinh nghiệm tận tâm phục vụ các khách hàng.",
   },
   {
     icon: TrendingUp,
-    title: 'Khả năng mở rộng',
-    description: 'Từ 100 đến 5.000+ bữa ăn mỗi ngày, chúng tôi thích ứng mượt mà với sự phát triển của tổ chức bạn.'
+    title: "Khả năng mở rộng",
+    description:
+      "Từ 100 đến 5.000+ bữa ăn mỗi ngày, chúng tôi thích ứng mượt mà với sự phát triển của tổ chức bạn.",
   },
 ];
 
 export default function WhyUs() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -48,7 +52,7 @@ export default function WhyUs() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -58,7 +62,7 @@ export default function WhyUs() {
       scale: 1,
       rotate: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -79,7 +83,9 @@ export default function WhyUs() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Tại sao chọn KT Catering</h2>
+          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
+            Tại sao chọn CÔNG TY TNHH KỲ THƯ
+          </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Sự xuất sắc trong mỗi bữa ăn, độ tin cậy trong mỗi lần giao hàng
           </p>
@@ -89,7 +95,7 @@ export default function WhyUs() {
           className="grid gap-8 md:grid-cols-2"
           variants={containerVariants}
           initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
+          animate={isInView ? "visible" : "hidden"}
         >
           {reasons.map((reason, idx) => {
             const Icon = reason.icon;
@@ -109,7 +115,9 @@ export default function WhyUs() {
                   </motion.div>
                 </div>
                 <motion.div variants={itemVariants}>
-                  <h3 className="mb-2 text-lg font-semibold text-foreground">{reason.title}</h3>
+                  <h3 className="mb-2 text-lg font-semibold text-foreground">
+                    {reason.title}
+                  </h3>
                   <p className="text-muted-foreground">{reason.description}</p>
                 </motion.div>
               </motion.div>

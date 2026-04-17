@@ -1,32 +1,34 @@
-'use client';
+"use client";
 
-import { Mail, Phone, MapPin } from 'lucide-react';
-import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { Mail, Phone, MapPin } from "lucide-react";
+import { useState, useRef } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
 
 export default function Contact() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
-    console.log('Form submitted:', formData);
-    setFormData({ name: '', email: '', phone: '', company: '', message: '' });
+    console.log("Form submitted:", formData);
+    setFormData({ name: "", email: "", phone: "", company: "", message: "" });
   };
 
   const containerVariants = {
@@ -45,7 +47,7 @@ export default function Contact() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -54,7 +56,7 @@ export default function Contact() {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.5, ease: 'easeOut' },
+      transition: { duration: 0.5, ease: "easeOut" },
     },
   };
 
@@ -66,37 +68,58 @@ export default function Contact() {
           ref={ref}
           variants={containerVariants}
           initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
+          animate={isInView ? "visible" : "hidden"}
         >
           {/* Contact Info */}
           <motion.div className="space-y-8" variants={itemVariants}>
             <motion.div className="space-y-4" variants={itemVariants}>
-              <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Liên hệ với chúng tôi</h2>
+              <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
+                Liên hệ với chúng tôi
+              </h2>
               <p className="text-lg text-muted-foreground">
-                Sẵn sàng hợp tác với KT Catering? Liên hệ với chúng tôi ngay hôm nay để nhận báo giá được cá nhân hóa.
+                Sẵn sàng hợp tác với CÔNG TY TNHH KỲ THƯ? Liên hệ với chúng tôi
+                ngay hôm nay để nhận báo giá được cá nhân hóa.
               </p>
             </motion.div>
 
             <motion.div className="space-y-6" variants={containerVariants}>
               {[
-                { icon: Phone, label: 'Điện thoại', value: '+84 (28) 1234-5678' },
-                { icon: Mail, label: 'Email', value: 'contact@ktcatering.vn' },
-                { icon: MapPin, label: 'Địa chỉ', value: 'Thành phố Hồ Chí Minh, Việt Nam' },
+                {
+                  icon: Phone,
+                  label: "Điện thoại",
+                  value: "+84 (28) 1234-5678",
+                },
+                { icon: Mail, label: "Email", value: "contact@kythu.vn" },
+                {
+                  icon: MapPin,
+                  label: "Địa chỉ",
+                  value: "Thành phố Hồ Chí Minh, Việt Nam",
+                },
               ].map((contact, idx) => {
                 const Icon = contact.icon;
                 return (
-                  <motion.div key={idx} className="flex gap-4" variants={itemVariants}>
+                  <motion.div
+                    key={idx}
+                    className="flex gap-4"
+                    variants={itemVariants}
+                  >
                     <motion.div
                       className="flex-shrink-0"
                       whileHover={{ scale: 1.1 }}
-                      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
                     >
                       <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent">
                         <Icon className="h-5 w-5 text-accent-foreground" />
                       </div>
                     </motion.div>
                     <div>
-                      <p className="font-semibold text-foreground">{contact.label}</p>
+                      <p className="font-semibold text-foreground">
+                        {contact.label}
+                      </p>
                       <p className="text-muted-foreground">{contact.value}</p>
                     </div>
                   </motion.div>
@@ -112,7 +135,10 @@ export default function Contact() {
             variants={itemVariants}
           >
             <motion.div variants={itemVariants}>
-              <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
                 Họ và tên
               </label>
               <motion.input
@@ -129,7 +155,10 @@ export default function Contact() {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
                 Địa chỉ Email
               </label>
               <motion.input
@@ -146,7 +175,10 @@ export default function Contact() {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+              <label
+                htmlFor="phone"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
                 Số điện thoại
               </label>
               <motion.input
@@ -162,7 +194,10 @@ export default function Contact() {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
+              <label
+                htmlFor="company"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
                 Tên công ty
               </label>
               <motion.input
@@ -179,7 +214,10 @@ export default function Contact() {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
                 Tin nhắn
               </label>
               <motion.textarea

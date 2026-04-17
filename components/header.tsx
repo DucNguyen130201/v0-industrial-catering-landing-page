@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,21 +19,35 @@ export default function Header() {
             height={40}
             className="h-10 w-auto"
           />
-          <span className="hidden font-semibold text-foreground sm:inline">KT Catering</span>
+          <span className="hidden font-semibold text-foreground sm:inline">
+            CÔNG TY TNHH KỲ THƯ
+          </span>
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden gap-8 md:flex">
-          <Link href="#services" className="text-sm text-foreground hover:text-accent transition-colors">
+          <Link
+            href="#services"
+            className="text-sm text-foreground hover:text-accent transition-colors"
+          >
             Dịch vụ
           </Link>
-          <Link href="#process" className="text-sm text-foreground hover:text-accent transition-colors">
+          <Link
+            href="#process"
+            className="text-sm text-foreground hover:text-accent transition-colors"
+          >
             Quy trình
           </Link>
-          <Link href="#why-us" className="text-sm text-foreground hover:text-accent transition-colors">
+          <Link
+            href="#why-us"
+            className="text-sm text-foreground hover:text-accent transition-colors"
+          >
             Tại sao chọn chúng tôi
           </Link>
-          <Link href="#testimonials" className="text-sm text-foreground hover:text-accent transition-colors">
+          <Link
+            href="#testimonials"
+            className="text-sm text-foreground hover:text-accent transition-colors"
+          >
             Đánh giá
           </Link>
         </div>

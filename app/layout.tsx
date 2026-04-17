@@ -7,7 +7,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "KT Catering | Giải pháp cơm công nghiệp",
+  title: "CÔNG TY TNHH KỲ THƯ | Giải pháp cơm công nghiệp",
   description:
     "Giải pháp cơm công nghiệp B2B cao cấp cho nhà máy, công ty và trường học. Cung cấp bữa ăn quy mô lớn với chất lượng được đảm bảo và tiêu chuẩn vệ sinh.",
   generator: "v0.app",
