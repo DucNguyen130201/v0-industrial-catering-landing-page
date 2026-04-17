@@ -1,36 +1,52 @@
-'use client';
+"use client";
 
-import { CheckCircle2 } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
-import { useInView } from 'framer-motion';
+import { CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 
 const services = [
   {
-    title: 'Cơm nhà máy',
-    description: 'Giải pháp bữa ăn tùy chỉnh cho các hoạt động quy mô lớn với giao hàng hàng ngày uy tín.',
-    features: ['Sức chứa lớn', 'Cân bằng dinh dưỡng', 'Giá cạnh tranh']
+    title: "Cơm nhà máy",
+    description:
+      "Giải pháp bữa ăn tùy chỉnh cho các hoạt động quy mô lớn với giao hàng hàng ngày uy tín.",
+    image: "/service-factory.png",
+    features: ["Sức chứa lớn", "Cân bằng dinh dưỡng", "Giá cạnh tranh"],
   },
   {
-    title: 'Ăn uống công ty',
-    description: 'Dịch vụ bữa ăn cao cấp cho các sự kiện công ty, hội thảo và ăn uống nhân viên hàng ngày.',
-    features: ['Trình bày chuyên nghiệp', 'Menu tùy chỉnh', 'Phối hợp tại chỗ']
+    title: "Ăn uống công ty",
+    description:
+      "Dịch vụ bữa ăn cao cấp cho các sự kiện công ty, hội thảo và ăn uống nhân viên hàng ngày.",
+    image: "/service-corporate.png",
+    features: ["Trình bày chuyên nghiệp", "Menu tùy chỉnh", "Phối hợp tại chỗ"],
   },
   {
-    title: 'Cơm trường học',
-    description: 'Bữa ăn phù hợp với độ tuổi, được chứng nhận về dinh dưỡng cho các tổ chức giáo dục.',
-    features: ['Dinh dưỡng chứng nhận', 'Quản lý dị ứng', 'Nguyên liệu chất lượng']
+    title: "Cơm trường học",
+    description:
+      "Bữa ăn phù hợp với độ tuổi, được chứng nhận về dinh dưỡng cho các tổ chức giáo dục.",
+    image: "/service-school.png",
+    features: [
+      "Dinh dưỡng chứng nhận",
+      "Quản lý dị ứng",
+      "Nguyên liệu chất lượng",
+    ],
   },
   {
-    title: 'Cơm tiệc',
-    description: 'Dịch vụ cơm toàn phần cho các sự kiện công ty, tiệc và dịp đặc biệt.',
-    features: ['Thiết lập hoàn chỉnh', 'Nhân viên chuyên nghiệp', 'Menu linh hoạt']
+    title: "Cơm tiệc",
+    description:
+      "Dịch vụ cơm toàn phần cho các sự kiện công ty, tiệc và dịp đặc biệt.",
+    image: "/service-event.png",
+    features: [
+      "Thiết lập hoàn chỉnh",
+      "Nhân viên chuyên nghiệp",
+      "Menu linh hoạt",
+    ],
   },
 ];
 
 export default function Services() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -48,7 +64,7 @@ export default function Services() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -69,9 +85,12 @@ export default function Services() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Dịch vụ của chúng tôi</h2>
+          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
+            Dịch vụ của chúng tôi
+          </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Giải pháp cơm toàn diện được điều chỉnh theo nhu cầu riêng của tổ chức bạn
+            Giải pháp cơm toàn diện được điều chỉnh theo nhu cầu riêng của tổ
+            chức bạn
           </p>
         </motion.div>
 
@@ -79,31 +98,50 @@ export default function Services() {
           className="grid gap-8 md:grid-cols-2 lg:grid-cols-4"
           variants={containerVariants}
           initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
+          animate={isInView ? "visible" : "hidden"}
         >
           {services.map((service, idx) => (
             <motion.div
               key={idx}
-              className="rounded-lg border border-border bg-card p-6 transition-all hover:border-accent hover:shadow-lg"
+              className="rounded-lg border border-border bg-card overflow-hidden transition-all hover:border-accent hover:shadow-lg"
               variants={itemVariants}
               whileHover={cardHoverVariants.hover}
             >
-              <h3 className="mb-3 text-xl font-semibold text-foreground">{service.title}</h3>
-              <p className="mb-6 text-sm text-muted-foreground">{service.description}</p>
-              
-              <motion.div
-                className="space-y-3"
-                variants={containerVariants}
-                initial="hidden"
-                animate={isInView ? 'visible' : 'hidden'}
-              >
-                {service.features.map((feature, fidx) => (
-                  <motion.div key={fidx} className="flex items-start gap-3" variants={itemVariants}>
-                    <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-accent mt-0.5" />
-                    <span className="text-sm text-foreground">{feature}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
+              <div className="relative overflow-hidden rounded-t-lg h-40">
+                <motion.img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="mb-3 text-xl font-semibold text-foreground">
+                  {service.title}
+                </h3>
+                <p className="mb-6 text-sm text-muted-foreground">
+                  {service.description}
+                </p>
+
+                <motion.div
+                  className="space-y-3"
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                >
+                  {service.features.map((feature, fidx) => (
+                    <motion.div
+                      key={fidx}
+                      className="flex items-start gap-3"
+                      variants={itemVariants}
+                    >
+                      <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-accent mt-0.5" />
+                      <span className="text-sm text-foreground">{feature}</span>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
             </motion.div>
           ))}
         </motion.div>
