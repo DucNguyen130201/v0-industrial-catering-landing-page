@@ -115,13 +115,13 @@ export default function Contact() {
                 {
                   icon: Phone,
                   label: "Điện thoại",
-                  value: "+84 (28) 1234-5678",
+                  value: "0915 163 447",
                 },
-                { icon: Mail, label: "Email", value: "contact@kythu.vn" },
+                { icon: Mail, label: "Email", value: "ctthhh.kythu@gmail.com" },
                 {
                   icon: MapPin,
                   label: "Địa chỉ",
-                  value: "Thành phố Hồ Chí Minh, Việt Nam",
+                  value: "phường Thanh Điền, Tây Ninh",
                 },
               ].map((contact, idx) => {
                 const Icon = contact.icon;
