@@ -4,10 +4,19 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
+import emailjs from "@emailjs/browser";
+
+const EMAILJS_SERVICE_ID = "service_iq0xtvr";
+const EMAILJS_TEMPLATE_ADMIN = "template_ojy4uji";
+const EMAILJS_TEMPLATE_CUSTOMER = "template_d6l5jzl";
+const EMAILJS_PUBLIC_KEY = "A1ujYUrq2O-6KLXTC";
 
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   const [formData, setFormData] = useState({
     name: "",
@@ -17,18 +26,37 @@ export default function Contact() {
     message: "",
   });
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ADMIN,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          message: formData.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+
+      setStatus("success");
+      setFormData({ name: "", email: "", phone: "", company: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setStatus("error");
+    }
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", phone: "", company: "", message: "" });
   };
 
   const containerVariants = {
@@ -235,13 +263,25 @@ export default function Contact() {
 
             <motion.button
               type="submit"
-              className="w-full rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+              disabled={status === "loading"}
+              className="w-full rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground hover:opacity-90 transition-opacity disabled:opacity-60"
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Gửi Yêu cầu
+              {status === "loading" ? "Đang gửi..." : "Gửi Yêu cầu"}
             </motion.button>
+
+            {status === "success" && (
+              <p className="text-green-600 text-sm text-center">
+                ✅ Gửi thành công! Chúng tôi sẽ liên hệ sớm.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-red-500 text-sm text-center">
+                ❌ Có lỗi xảy ra. Vui lòng thử lại hoặc liên hệ trực tiếp.
+              </p>
+            )}
           </motion.form>
         </motion.div>
       </div>
