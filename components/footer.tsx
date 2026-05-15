@@ -111,10 +111,10 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="font-semibold">Liên hệ</h4>
             <ul className="space-y-2 text-sm opacity-75">
-              <li>Hotline: +84 (28) 1234-5678</li>
-              <li>contact@kythu.vn</li>
+              <li>Hotline: 0915 163 447</li>
+              <li>cttnhh.kythu@gmail.com</li>
               <li>
-                Hẻm 36, DT 786, Tổ 17, Thanh Thuận, Phường Thanh Điền, Tỉnh Tây
+                Khu phố Thanh Thuận, Phường Thanh Điền, Tỉnh Tây
                 Ninh, Việt Nam
               </li>
             </ul>
