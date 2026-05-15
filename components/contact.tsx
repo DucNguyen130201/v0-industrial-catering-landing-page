@@ -117,7 +117,7 @@ export default function Contact() {
                   label: "Điện thoại",
                   value: "0915 163 447",
                 },
-                { icon: Mail, label: "Email", value: "ctthhh.kythu@gmail.com" },
+                { icon: Mail, label: "Email", value: "cttnhh.kythu@gmail.com" },
                 {
                   icon: MapPin,
                   label: "Địa chỉ",
