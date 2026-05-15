@@ -9,7 +9,7 @@ import emailjs from "@emailjs/browser";
 const EMAILJS_SERVICE_ID = "service_iq0xtvr";
 const EMAILJS_TEMPLATE_ADMIN = "template_ojy4uji";
 const EMAILJS_TEMPLATE_CUSTOMER = "template_d6l5jzl";
-const EMAILJS_PUBLIC_KEY = "A1ujYUrq2O-6KLXTC";
+const EMAILJS_PUBLIC_KEY = "g-p3ipJQTK_aH_6g4";
 
 export default function Contact() {
   const ref = useRef(null);
